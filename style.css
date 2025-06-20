@@ -1,0 +1,127 @@
+/* STYLE SHEET  */
+
+.controller {
+    display: grid;
+    height: fit-content;
+    width: min-content;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    align-content: space-between;
+    cursor: pointer;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "numpad buttons settings";
+}
+
+.numpad { grid-area: numpad; }
+.buttons { grid-area: buttons; }
+.settings { grid-area: settings; }
+
+.numpad { 
+    display: grid;
+    height: fit-content;
+    width: fit-content;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "div7 div8 div9"
+        "div4 div5 div6"
+        "div1 div2 div3";
+}
+
+.div7 { grid-area: div7; }
+.div8 { grid-area: div8; }
+.div9 { grid-area: div9; }
+.div4 { grid-area: div4; }
+.div5 { grid-area: div5; }
+.div6 { grid-area: div6; }
+.div1 { grid-area: div1; }
+.div2 { grid-area: div2; }
+.div3 { grid-area: div3; }
+
+.div1, .div2, .div3, .div4, .div5, .div6, .div7, .div8, .div9 {
+    width: 24px;
+    height: 24px;
+    color: white;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}
+
+.div1 { background-image: url(static/pad/1.png); }
+.div2 { background-image: url(static/pad/2.png); }
+.div3 { background-image: url(static/pad/3.png); }
+.div4 { background-image: url(static/pad/4.png); }
+.div5 { background-image: url(static/pad/5.png); }
+.div6 { background-image: url(static/pad/6.png); }
+.div7 { background-image: url(static/pad/7.png); }
+.div8 { background-image: url(static/pad/8.png); }
+.div9 { background-image: url(static/pad/9.png); }
+
+.buttons { 
+    display: grid;
+    height: fit-content;
+    width: fit-content;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "p s d"
+    "k h .";
+}
+
+.p { grid-area: p; }
+.k { grid-area: k; }
+.s { grid-area: s; }
+.h { grid-area: h; }
+.d { grid-area: d; }
+
+.p, .k, .s, .h, .d {
+    width: 22px;
+    height: 22px;
+    color: transparent;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}
+
+.p { background-image: url(static/button/p.png); }
+.k { background-image: url(static/button/k.png); }
+.s { background-image: url(static/button/s.png); }
+.h { background-image: url(static/button/h.png); }
+.d { background-image: url(static/button/d.png); }
+
+.settings {
+    height: fit-content;
+    width: max-content;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    align-items: center;
+    align-content: center;
+    text-align: left;
+    border: 1px solid black;
+}
+
+.settings p {
+    margin: 0;
+    padding: 0;
+}
