@@ -234,6 +234,12 @@ document.querySelectorAll('.buttons > div').forEach(div => {
 
 // Permitir ingresar direccionales del pad y botones usando el teclado
 document.addEventListener('keydown', function(e) {
+    // Permitir que Enter funcione como el botón enviar
+    if (e.key === 'Enter') {
+        document.getElementById('enviar').click();
+        return;
+    }
+
     // Borrar el último elemento con Backspace
     if (e.key === 'Backspace') {
         const output = document.querySelector('.output');
