@@ -157,13 +157,29 @@ function updateOutputImages() {
 // Numpad
 document.querySelectorAll('.numpad > div').forEach(div => {
     div.addEventListener('click', function() {
-        const num = this.className.match(/div(\d)/)[1];
-        const img = document.createElement('img');
-        img.src = `static/pad/${num}.png`;
-        img.alt = num;
-        img.style.width = '24px';
-        img.style.height = '24px';
-        document.querySelector('.output').appendChild(img);
+        const output = document.querySelector('.output');
+        if (document.getElementById('pad').checked) {
+            const num = this.className.match(/div(\d)/)[1];
+            const img = document.createElement('img');
+            img.src = `static/pad/${num}.png`;
+            img.alt = num;
+            img.style.width = '24px';
+            img.style.height = '24px';
+            output.appendChild(img);
+        } else {
+            // Mostrar el número como texto, color #5E5D5D
+            const num = this.className.match(/div(\d)/)[1];
+            const span = document.createElement('span');
+            span.textContent = num;
+            span.style.display = 'inline-block';
+            span.style.width = '24px';
+            span.style.height = '24px';
+            span.style.lineHeight = '24px';
+            span.style.textAlign = 'center';
+            span.style.color = '#5E5D5D';
+            span.style.fontWeight = 'bold';
+            output.appendChild(span);
+        }
         updateOutputImages();
     });
 });
@@ -171,13 +187,44 @@ document.querySelectorAll('.numpad > div').forEach(div => {
 // Buttons
 document.querySelectorAll('.buttons > div').forEach(div => {
     div.addEventListener('click', function() {
+        const output = document.querySelector('.output');
         const btn = this.className.trim(); // p, k, s, h, d
-        const img = document.createElement('img');
-        img.src = `static/button/${btn}.png`;
-        img.alt = btn.toUpperCase();
-        img.style.width = '24px';
-        img.style.height = '24px';
-        document.querySelector('.output').appendChild(img);
+        if (document.getElementById('buttons').checked) {
+            const img = document.createElement('img');
+            img.src = `static/button/${btn}.png`;
+            img.alt = btn.toUpperCase();
+            img.style.width = '24px';
+            img.style.height = '24px';
+            output.appendChild(img);
+        } else {
+            // Mostrar el nombre en mayúsculas y color correspondiente
+            const span = document.createElement('span');
+            span.textContent = btn.toUpperCase();
+            span.style.display = 'inline-block';
+            span.style.width = '24px';
+            span.style.height = '24px';
+            span.style.lineHeight = '24px';
+            span.style.textAlign = 'center';
+            span.style.fontWeight = 'bold';
+            switch (btn) {
+                case 'p':
+                    span.style.color = '#F00'; // Rojo
+                    break;
+                case 'k':
+                    span.style.color = '#0F0'; // Verde
+                    break;
+                case 's':
+                    span.style.color = '#00F'; // Azul
+                    break;
+                case 'h':
+                    span.style.color = '#FF0'; // Amarillo
+                    break;
+                case 'd':
+                    span.style.color = '#0FF'; // Cyan
+                    break;
+            }
+            output.appendChild(span);
+        }
         updateOutputImages();
     });
 });
